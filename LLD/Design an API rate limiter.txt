@@ -1,0 +1,33 @@
+Suppose there is a API service. Design a rate limiter for the service.
+Each user will have an API key to access the service
+rate limits:
+10 requests/min
+50 requests/hour
+
+
+We will use Redis to design the rate limiter
+
+const rate_limits = {
+    per_min: { limit: 10, ttl: 60 }
+    per_hour: { limit: 50, ttl: 60 * 60 }
+}
+
+for each API key we will maitain 2 redis keys
+[API key of user]:per_min
+[API key of user]:per_hour
+
+1. When the user request comes, get the values of the keys 
+2. If the value is greater than it's limit, throw 429(too many requests)
+3. Otherwise, increment the value of the key by 1 and reset the ttl
+
+implement a middleware to handle rate limits
+eg for per_min
+const key = `${user_api_key}:per_min`;
+const limit = redis.get(key);
+if (limit > rate_limits.per_min.limit) {
+    throw new Error("Too many requests", 429);
+}
+await redis.set(key, limit + 1, rate_limits.per_min.ttl);
+next();
+
+

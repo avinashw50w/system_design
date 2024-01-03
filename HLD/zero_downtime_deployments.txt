@@ -1,0 +1,17 @@
+Zero downtime deployment refers to a deployment strategy where updates or changes to a software system are implemented without causing any disruption or downtime to the system's availability. This ensures that users can continue to access the system and perform their tasks without interruption. Here are several approaches commonly used to achieve zero downtime deployment:
+
+1. **Load Balancing**: Employing a load balancer to distribute incoming traffic across multiple instances of the application or different servers. During deployment, one server is taken offline, updated, and brought back into the rotation while the other servers continue serving requests.
+
+2. **Blue-Green Deployment**: In a blue-green deployment, you have two identical environments: the "blue" environment, which represents the current live system, and the "green" environment, which represents the updated version. Initially, traffic is routed to the blue environment. When the green environment is ready, traffic is switched from blue to green, allowing the new version to be live with zero downtime. If any issues arise, traffic can quickly be switched back to the blue environment.
+
+3. **Rolling Deployment**: This strategy involves gradually updating instances of an application in a controlled manner. A rolling deployment typically involves updating one or a few instances at a time, while the remaining instances continue serving requests. This incremental approach minimizes the impact on users and ensures continuous availability.
+
+4. **Canary Release**: A canary release involves deploying a new version of an application to a small subset of users or a limited number of servers, while the majority of users or servers still use the older version. This allows for testing the new version in a production environment and verifying its stability and performance before rolling it out to all users. If issues occur, only a small portion of users or servers are affected.
+
+5. **Feature Toggles**: With feature toggles or feature flags, specific features or code changes can be enabled or disabled dynamically. This allows deploying changes to production but keeping the new features turned off until they have been thoroughly tested. Once the new features are stable, they can be gradually enabled without any downtime.
+
+6. **Database Migrations**: For deployments involving database changes, techniques like backward-compatible schema updates, online schema changes, or database replication can be employed to ensure data consistency and availability during the deployment process.
+
+7. **Containerization and Orchestration**: Utilizing container technologies like Docker and orchestration platforms such as Kubernetes allows for seamless scaling, rolling updates, and automated deployment management. Containers can be deployed and scaled up or down without impacting the overall system availability.
+
+These strategies, individually or in combination, help minimize or eliminate downtime during deployments, ensuring continuous availability of the system to users. It's important to choose the appropriate approach based on your specific application and infrastructure requirements.
