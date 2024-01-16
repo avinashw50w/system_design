@@ -1,0 +1,48 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {
+      "type": "text",
+      "version": 2127,
+      "versionNonce": 204869480,
+      "isDeleted": false,
+      "id": "J4NbiYLj3bSegEZhm9-7u",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "x": 468.964599609375,
+      "y": 157.76043701171875,
+      "strokeColor": "#000000",
+      "backgroundColor": "transparent",
+      "width": 1076.8590087890625,
+      "height": 1525,
+      "seed": 209589053,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "boundElements": [],
+      "updated": 1704276474773,
+      "link": null,
+      "locked": false,
+      "fontSize": 20,
+      "fontFamily": 1,
+      "text": "A sytem to create recurring(daily, weekly, monthly) events\nan event can contain multiple participants\nnotifying the users about the event (configurable time )\n\nusers - 50 million dau\ndau - 10 million\nevents/day - 10 million\n\nCAP - P must\nC & A\n\n----------------------------------------------\nFunctional requirements\n1. can create/update/delete a recurring event\n2. get event details\n3. add recipients to an event\n4. send notification to all the recipients x minutes prior to the event\n\nNon functional requirements\n1. System should be available and scalable\n2. Eventual consistency\n\n\nEstimates\n\nLets suppose an event takes upto 1KB of size.\n=> event size/ day = 1KB * 10M = 10KB * 10^6 = 10 GB\n\nWe can store these events in a noSQL database like mongoDB, sharded by events\n\nQPS = 10M/day = 10M/10^5 = 100\n\nA single server can handle upto 100 requests/sec. But will deploy a couple of servers for accepting\nrequests to avoid single point of failure.\n\nSchema:\nevent \n{\n    event_id,\n    user_id,\n    start_time,\n    end_time,\n    recurring_interval // in min\n    created_at\n    deleted_at\n}\n\nevent_recipients {\n    event_id,\n    user_id\n}\n\ncache - store the recent events that are\n\nservice having the notification events -> kafka topic ->  workers processing those event -> email notification\n\n\n\n\n\n",
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "containerId": null,
+      "originalText": "A sytem to create recurring(daily, weekly, monthly) events\nan event can contain multiple participants\nnotifying the users about the event (configurable time )\n\nusers - 50 million dau\ndau - 10 million\nevents/day - 10 million\n\nCAP - P must\nC & A\n\n----------------------------------------------\nFunctional requirements\n1. can create/update/delete a recurring event\n2. get event details\n3. add recipients to an event\n4. send notification to all the recipients x minutes prior to the event\n\nNon functional requirements\n1. System should be available and scalable\n2. Eventual consistency\n\n\nEstimates\n\nLets suppose an event takes upto 1KB of size.\n=> event size/ day = 1KB * 10M = 10KB * 10^6 = 10 GB\n\nWe can store these events in a noSQL database like mongoDB, sharded by events\n\nQPS = 10M/day = 10M/10^5 = 100\n\nA single server can handle upto 100 requests/sec. But will deploy a couple of servers for accepting\nrequests to avoid single point of failure.\n\nSchema:\nevent \n{\n    event_id,\n    user_id,\n    start_time,\n    end_time,\n    recurring_interval // in min\n    created_at\n    deleted_at\n}\n\nevent_recipients {\n    event_id,\n    user_id\n}\n\ncache - store the recent events that are\n\nservice having the notification events -> kafka topic ->  workers processing those event -> email notification\n\n\n\n\n\n",
+      "lineHeight": 1.25,
+      "baseline": 1518
+    }
+  ],
+  "appState": {
+    "gridSize": null,
+    "viewBackgroundColor": "#ffffff"
+  },
+  "files": {}
+}
