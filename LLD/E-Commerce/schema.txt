@@ -1,0 +1,130 @@
+1. Users
+    - id                    PK
+    - email_address
+    - phone_number
+    - password
+
+2. User_addresses
+    - user_id               FK
+    - address_id            FK
+    - is_default            boolean
+
+3. Addresses
+    - id                    PK
+    - unit_number
+    - street_number
+    - address_line_1
+    - address_line_2
+    - city
+    - region
+    - landmark
+    - postal_code
+    - country_id             PK
+
+4. Countries
+    - id                     PK
+    - name
+    - country_code
+
+5. Product
+    - id                     PK
+    - category_id            FK
+    - name
+    - description
+    - product_image
+
+6. Product_item
+    - id                     PK
+    - product_id             FK
+    - SKU
+    - qty_in_stock
+    - product_image
+    - price
+
+7. Product_category
+    - id                      PK
+    - parent_category_id      FK
+    - category_name
+
+8. Variation
+    - id                      PK
+    - category_id             FK
+    - name
+
+9. Variation_option
+    - id                      PK
+    - variation_id            FK
+    - value
+
+10. Product_configuration
+    - product_item_id         FK
+    - variation_option_id     FK
+
+11. Promotions
+    - id
+    - name
+    - description
+    - discount_rate
+    - start_date
+    - end_date
+
+12. Promotion_category
+    - category_id
+    - promotion_id
+
+13. Shopping_cart
+    - id
+    - user_id
+
+14. Shopping_cart_item
+    - id
+    - cart_id
+    - product_item_id
+    - qty
+
+15. Orders
+    - id
+    - user_id
+    - order_date
+    - payment_method_id
+    - shipping_address
+    - shipping_method
+    - order_total
+    - order_status
+
+16. Shipping_method
+    - id
+    - name
+    - price
+
+17. Order_status
+    - id
+    - status              enum()
+
+18. Order_items
+    - id
+    - order_id
+    - product_item_id
+    - qty
+    - price
+
+19. User_payment_methods
+    - id
+    - user_id
+    - payment_type_id
+    - provider
+    - account_number
+    - expiry_date
+    - is_default
+
+20. Payment_type
+    - id
+    - value
+
+21. User_reviews
+    - id
+    - user_id
+    - ordered_product_id
+    - rating
+    - comment
+

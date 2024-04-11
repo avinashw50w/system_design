@@ -1,0 +1,21 @@
+1. Create Accounts - users can create accounts and log in to system
+2. Contact Details - users can store their name and contact details such as email and phone number
+3. Addresses - users can add one or more addresses to their account and can set a default shipping address
+4. Payment method - users can add one or more payment methods to their accoutn and can set a default payment method
+5. Products - the system can store a large # of products
+6. Categories - each product belongs in a category, and categories can belong to other categories.
+7. Product Variations - each product can have different variations, such as different colors or sizes. 
+    Each of these variations(e.g. color) can have different values (e.g. red, black, blue)
+8. Number in Stock - the system should keep track of the number of each product in that stock
+9. Shopping Cart - visitors can add one or more products to their shopping cart as part of their shopping
+    experience. Shopping carts are not saved in the database unless they are logged in.
+10. Payment Details for Order - a user needs to provide their payment details and address details as part 
+    of placing an order.
+11. Shipping Method - the user can select a shipping method from a list of methods. Each shipping method 
+    has a single standard price (to keep things simple)
+12. Order Status - the order and shipping process follows several stages once the order is placed,
+    such as processing, delivery in progress, and delivered
+13. Reviews - users can leave reviews for products they have purchased, which include a rating from 1-5
+    and a text comment.
+14. Promotions - the system allows for promotions or sales to be run, which allows for one or more product
+    categories to have a specific discount on their price.
