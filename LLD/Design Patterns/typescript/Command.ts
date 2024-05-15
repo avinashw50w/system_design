@@ -1,11 +1,11 @@
 // Receiver
 class Light {
   turnOn(): void {
-    console.log('Light is on.');
+    console.log("Light is on.");
   }
 
   turnOff(): void {
-    console.log('Light is off.');
+    console.log("Light is off.");
   }
 }
 
@@ -16,11 +16,7 @@ interface Command {
 
 // Concrete Command 1
 class TurnOnCommand implements Command {
-  private light: Light;
-
-  constructor(light: Light) {
-    this.light = light;
-  }
+  constructor(private light: Light) {}
 
   execute(): void {
     this.light.turnOn();
@@ -29,11 +25,7 @@ class TurnOnCommand implements Command {
 
 // Concrete Command 2
 class TurnOffCommand implements Command {
-  private light: Light;
-
-  constructor(light: Light) {
-    this.light = light;
-  }
+  constructor(private light: Light) {}
 
   execute(): void {
     this.light.turnOff();
@@ -65,7 +57,6 @@ remoteControl.addCommand(turnOnCommand);
 remoteControl.addCommand(turnOffCommand);
 
 remoteControl.executeCommands();
-
 
 /*
 The command pattern allows decoupling the sender and receiver of a command, allowing for the encapsulation of a request as an object. It enables the requester to be unaware of the receiver's implementation details and provides flexibility in adding, modifying, or reusing commands.

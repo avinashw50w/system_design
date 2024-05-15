@@ -1,7 +1,10 @@
 // Existing Adaptee class
-class EuropeanCar {
+interface IEuropeanCar {
+  drive(): void;
+}
+class EuropeanCar implements IEuropeanCar {
   drive(): void {
-    console.log('Driving on the right side of the road.');
+    console.log('drive');
   }
 }
 
@@ -12,14 +15,10 @@ interface AmericanCar {
 
 // Adapter class
 class EuropeanToAmericanAdapter implements AmericanCar {
-  private europeanCar: EuropeanCar;
-
-  constructor(europeanCar: EuropeanCar) {
-    this.europeanCar = europeanCar;
-  }
+  constructor(private europeanCar: EuropeanCar) {}
 
   driveOnLeftSide(): void {
-    console.log('Driving on the left side of the road.');
+    console.log("Driving on the left side of the road.");
     this.europeanCar.drive();
   }
 }

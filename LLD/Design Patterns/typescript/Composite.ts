@@ -1,5 +1,5 @@
 /*
-it's like composition
+it's like composition. Used when to implement tree like feature like filesystem
  */
 // Component interface
 interface Component {
@@ -8,11 +8,7 @@ interface Component {
 
 // Leaf class
 class Leaf implements Component {
-  private name: string;
-
-  constructor(name: string) {
-    this.name = name;
-  }
+  constructor(private name: string) {}
 
   operation(): void {
     console.log(`Leaf ${this.name} operation.`);
@@ -47,11 +43,11 @@ const leaf1: Component = new Leaf("Leaf 1");
 const leaf2: Component = new Leaf("Leaf 2");
 const leaf3: Component = new Leaf("Leaf 3");
 
-const composite1: Component = new Composite();
+const composite1: Composite = new Composite();
 composite1.add(leaf1);
 composite1.add(leaf2);
 
-const composite2: Component = new Composite();
+const composite2: Composite = new Composite();
 composite2.add(composite1);
 composite2.add(leaf3);
 
