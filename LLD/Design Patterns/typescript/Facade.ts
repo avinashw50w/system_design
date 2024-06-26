@@ -1,3 +1,4 @@
+/*This pattern hides the complexities of the larger system and provides a simpler interface to the client.*/
 // Subsystem 1
 class Engine {
   start(): void {

@@ -1,3 +1,6 @@
+/*
+The command pattern allows decoupling the sender and receiver of a command, allowing for the encapsulation of a request as an object. It enables the requester to be unaware of the receiver's implementation details and provides flexibility in adding, modifying, or reusing commands.
+*/
 // Receiver
 class Light {
   turnOn(): void {
@@ -57,7 +60,3 @@ remoteControl.addCommand(turnOnCommand);
 remoteControl.addCommand(turnOffCommand);
 
 remoteControl.executeCommands();
-
-/*
-The command pattern allows decoupling the sender and receiver of a command, allowing for the encapsulation of a request as an object. It enables the requester to be unaware of the receiver's implementation details and provides flexibility in adding, modifying, or reusing commands.
-*/

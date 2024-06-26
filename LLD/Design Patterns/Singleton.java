@@ -2,6 +2,9 @@
 eg. creating instance of db driver or the whole app instance
 */
 
+/*1. make constructor as private, so that it's instances can't be instantiated.
+2. implement a static method to initialize the static instance variable only once.
+3. use synchronization (double chekced locking) for multi threaded environment*/
 class Singleton {
 	private static Singleton instance;
 	// private constructor to force use of the getInstance method
@@ -54,21 +57,21 @@ If you notice carefully once an object is created synchronization is no longer u
 So we will only acquire lock on the getInstance() once, when the obj is null. This way we only synchronize the first way through, just what we want.*/
 
 class Singleton {
-	private volatile static Singleton obj;
+	private volatile static Singleton instance;
 
 	private Singleton() {}
 
 	public static Singleton getInstance() {
-		if (obj == null) {
+		if (instance == null) {
 			// To make thread safe
 			synchronized (Singleton.class) {
 				// check again as multiple threads
 				// can reach above step
-				if (obj == null)
-					obj = new Singleton();
+				if (instance == null)
+					instance = new Singleton();
 			}
 		}
-		return obj;
+		return instance;
 	}
 }
 /*We have declared the obj volatile which ensures that multiple threads offer the

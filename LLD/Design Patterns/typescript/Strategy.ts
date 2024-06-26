@@ -1,3 +1,4 @@
+/*In Strategy pattern, a class behavior or its algorithm can be changed at run time. This type of design pattern comes under behavior pattern.*/
 // Strategy interface
 interface PaymentStrategy {
   pay(amount: number): void;
@@ -49,7 +50,7 @@ class ShoppingCart {
     if (this.paymentStrategy) {
       this.paymentStrategy.pay(amount);
     } else {
-      console.log('Please set a payment strategy before checking out.');
+      console.log("Please set a payment strategy before checking out.");
     }
   }
 }
@@ -59,20 +60,20 @@ const shoppingCart: ShoppingCart = new ShoppingCart();
 
 // Setting credit card payment strategy
 const creditCardStrategy: PaymentStrategy = new CreditCardPaymentStrategy(
-  '1234567890123456',
-  '12/2024',
-  '123'
+  "1234567890123456",
+  "12/2024",
+  "123",
 );
 shoppingCart.setPaymentStrategy(creditCardStrategy);
-shoppingCart.checkout(100.50);
+shoppingCart.checkout(100.5);
 
 // Setting PayPal payment strategy
 const paypalStrategy: PaymentStrategy = new PayPalPaymentStrategy(
-  'example@example.com',
-  'password'
+  "example@example.com",
+  "password",
 );
 shoppingCart.setPaymentStrategy(paypalStrategy);
-shoppingCart.checkout(75.20);
+shoppingCart.checkout(75.2);
 
 /*
 The chosen payment strategy is used to perform the payment by calling the pay() method on the selected strategy. Each strategy can implement its own logic for payment processing.
